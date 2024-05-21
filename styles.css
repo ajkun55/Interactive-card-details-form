@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+:root{
+    /*
+    - Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+    - Red (input errors): hsl(0, 100%, 66%)*/
+
+    --clr-White: hsl(0, 0%, 100%);
+    --clr-Light-grayish-violet: hsl(270, 3%, 87%);
+    --clr-Dark-grayish-violet: hsl(279, 6%, 55%);
+    --clr-Very-dark-violet: hsl(278, 68%, 11%);
+    --clr-red: hsl(0, 100%, 66%);
+}
+
+body{
+    min-height: max(100vh, 900px);
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--clr-Very-dark-violet);
+    background-image: url('./images/bg-main-desktop.png');
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.front{
+    background: url('./images/bg-card-front.png') no-repeat;
+    display: grid;
+    color: var(--clr-White);    
+    
+}
+.number-output{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3rem;
+    width: 100%;
+    letter-spacing: 5px;
+    word-spacing: 1.2rem;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.back{
+    background: url('./images/bg-card-back.png') no-repeat;
+    margin: 2.5rem 0 0 min(5.5rem,8%);
+    p{
+        position: relative;
+        top: 43%;
+        right: 7%;
+        text-align: end;
+        color: var(--clr-White);
+        letter-spacing: 2px;
+    }
+}
+
+.card{
+    width: min(445px,85%);
+    height: 245px;
+    padding: 30px;
+    border-radius: 0.6rem;
+}
+
+.component{
+    width: min(24rem, 90%);
+    margin-left: min(125px, 10%);
+}
+
+form{
+    display: grid;
+    gap: 1.5rem;
+}
+
+label{
+    display: grid;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+input{
+    height: 2.5rem;
+    margin-block: 0.5rem;
+    border: 1px solid var(--clr-Light-grayish-violet);
+    border-radius: 0.5rem;
+    padding-left: 1rem;
+}
+
+.onerow{
+    display: flex;
+    align-items: flex-end;
+}
+
+.date{
+    display: flex;
+    input{
+        max-width: 5rem;
+        margin-right: 10px;
+    }
+}
+
+label[for=cvc]{
+    margin-left: 10px;
+    width: 100%;
+}
+
+#submit{
+    margin-top: 1rem;
+}
+
+button{
+    background-color: var(--clr-Very-dark-violet);
+    color: var(--clr-White);
+    height: 3.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.success{
+    display: grid;
+    gap: 40px;
+    text-align: center;
+    img{
+        margin: 0 auto;
+    }
+    h1{
+        text-transform: uppercase;
+        font-weight: 500;
+        line-height: 1;
+    }
+    p{
+        color: var(--clr-Dark-grayish-violet);
+    }
+}
+
+.sub-container{
+    display: none;
+}
+
+.warning{
+    border-color: var(--clr-red);
+}
+
+.valid{
+    border-color: var(--clr-Light-grayish-violet);
+}
+
+.errmsg{
+    color: var(--clr-red);
+    font-size: 0.8rem;
+    text-transform: none;
+    display: none;
+}
+
+input:hover, input:focus{
+    cursor: pointer;
+    border: 1px solid hsl(278, 94%, 30%);
+    outline: none !important;
+}
+
+
+@media (width < 750px){
+    body{
+        background-image: url('./images/bg-main-mobile.png');
+        background-size: 100% auto;
+    }
+    .container{
+        flex-direction: column;
+    }
+
+    .component{
+        margin: 2rem auto;
+    }
+    input{
+        min-width: none;
+        width: 100%;
+    }
+    .cards{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 100%;
+        padding: 1rem;
+    }
+    .card{
+        min-height: 16rem;
+        border-bottom-right-radius: 0.6rem;
+    }
+    .front{
+        margin-top: 2rem;
+        min-width: 75%;
+    }
+    .number-output{
+        font-size: 12px;
+        word-spacing: 0;
+        letter-spacing: 0;
+    }
+    #submit{
+        margin-bottom: 5rem;
+    }
+}
